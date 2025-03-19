@@ -10,11 +10,9 @@ import GamePage from "./pages/GamePage";
 import AdminPage from "./pages/AdminPage";
 import TarkovMapPage from "./pages/TarkovMapPage";
 import MapSelector from "./pages/MapSelector";
-import StorageTest from "./components/StorageTest";
 import { initDatabase } from "./services/gameService";
 import "./App.css";
 import { UmamiAnalytics } from "./utils/analytics";
-import CookieConsent from "./components/CookieConsent";
 
 // Simple loading component
 const Loading = () => (
@@ -57,15 +55,11 @@ function App() {
             {/* Admin route */}
             <Route path="/admin" element={<AdminPage />} />
 
-            {/* Storage test route */}
-            <Route path="/storage-test" element={<StorageTest />} />
-
             {/* Fallback for invalid routes */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </div>
-      <CookieConsent />
     </Router>
   );
 }
