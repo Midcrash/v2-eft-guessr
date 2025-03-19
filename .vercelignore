@@ -1,4 +1,3 @@
-src/components/TestInsertButton.jsx
 src/services/testInsert.js
 src/pages/CustomsMap.css
 src/pages/Home.jsx
