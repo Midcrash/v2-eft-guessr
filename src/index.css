@@ -1,13 +1,157 @@
-body {
+/* Basic reset styles */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  /* Color palette */
+  --bg-dark: #111111;
+  --bg-darker: #0a0a0a;
+  --bg-medium: #1a1a1a;
+  --bg-light: #252525;
+
+  --accent-red: #6e2c2c;
+  --accent-red-bright: #8f3a3a;
+  --accent-brown: #5d4b36;
+  --accent-brown-light: #7a6346;
+
+  --text-light: #e0e0e0;
+  --text-medium: #b0b0b0;
+  --text-dark: #707070;
+
+  --border-dark: #333333;
+  --border-light: #444444;
+
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+/* Base button styles */
+.btn {
+  background-color: var(--bg-medium);
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+  padding: 8px 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: var(--bg-light);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--accent-red);
+  border-color: var(--accent-red-bright);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-red-bright);
+}
+
+.btn-secondary {
+  background-color: var(--accent-brown);
+  border-color: var(--accent-brown-light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-brown-light);
+}
+
+/* Container styles */
+.container {
+  padding: 16px;
+  background-color: var(--bg-medium);
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 4px 6px var(--shadow-dark);
+}
+
+/* Header and text styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-light);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 0;
+}
+
+p {
+  color: var(--text-medium);
+}
+
+/* Form elements */
+input,
+select,
+textarea {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-dark);
+  color: var(--text-light);
+  padding: 8px 12px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent-brown);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
 }

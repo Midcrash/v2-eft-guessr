@@ -3,20 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "leaflet": "^1.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "node scripts/validateEnv.js",
     "build": "react-scripts build",
+    "build:production": "GENERATE_SOURCEMAP=false react-scripts build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "postbuild": "echo \"Skipping gzip compression in development environment\"",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx}",
+    "serve": "serve -s build",
+    "check:logs": "node scripts/findConsoleLogs.js"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "serve": "^14.2.1",
+    "source-map-explorer": "^2.5.3"
   }
 }

@@ -1,0 +1,159 @@
+.home-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2c3e50;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/tarkov-background.jpg");
+  background-size: cover;
+  background-position: center;
+  color: rgb(255, 255, 255);
+}
+
+.home-content {
+  max-width: 600px;
+  width: 90%;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.home-title {
+  font-size: 42px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.home-description {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #ecf0f1;
+}
+
+.game-settings {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #ecf0f1;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: rgb(231, 231, 231);
+  color: rgb(59, 59, 59);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-control option {
+  color: rgb(255, 255, 255);
+}
+
+.start-button {
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.start-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+  background-color: rgba(231, 76, 60, 0.3);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border-left: 4px solid #e74c3c;
+}
+
+.admin-links {
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.admin-link {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.admin-link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.home-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+}
+
+.loading-spinner {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 32px;
+  }
+
+  .home-description {
+    font-size: 16px;
+  }
+
+  .start-button {
+    padding: 12px 40px;
+    font-size: 16px;
+  }
+}

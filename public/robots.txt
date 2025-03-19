@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap file
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Rate limiting rules for bots
+User-agent: *
+Crawl-delay: 10

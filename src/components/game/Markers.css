@@ -1,0 +1,24 @@
+/* Simple marker styling */
+.guess-marker-icon {
+  filter: hue-rotate(140deg) saturate(2) brightness(0.8); /* Makes the marker reddish */
+}
+
+.actual-marker-icon {
+  /* Blue is the default color for Leaflet markers */
+}
+
+/* Make sure markers are visible */
+.leaflet-marker-icon {
+  z-index: 1000 !important;
+}
+
+.leaflet-marker-shadow {
+  z-index: 900 !important;
+}
+
+/* Path styling */
+.leaflet-polyline {
+  stroke-width: 3px !important;
+  opacity: 0.8 !important;
+  stroke-dasharray: 5, 10 !important;
+}
