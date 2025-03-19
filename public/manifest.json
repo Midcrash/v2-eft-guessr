@@ -1,6 +1,6 @@
 {
-  "short_name": "Tarkov Guessr",
-  "name": "Tarkov Guessr - Test your Escape from Tarkov knowledge",
+  "short_name": "EFTGuessr",
+  "name": "EFTGuessr - Test your Escape from Tarkov knowledge",
   "icons": [
     {
       "src": "favicon.ico",
