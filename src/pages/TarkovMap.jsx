@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../modules/leaflet-control-coordinates.js";
-import "./CustomsMap.css"; // We can reuse the existing CSS
 import mapData from "../data/maps.json";
 
 // Helper functions for map positioning and coordinate transformation
