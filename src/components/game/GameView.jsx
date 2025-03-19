@@ -10,6 +10,7 @@ import {
 } from "../../utils/imageUtils";
 import { calculateScore } from "../../services/imageService";
 import "./GameView.css";
+import { gameAnalytics } from "../../utils/analytics";
 
 const GameView = ({ mapName, roundCount = 5 }) => {
   const navigate = useNavigate();
@@ -85,6 +86,9 @@ const GameView = ({ mapName, roundCount = 5 }) => {
           console.log("Map is already ready, setting loading to false");
           setLoading(false);
         }
+
+        // Track game start
+        gameAnalytics.trackGameStart(mapName, roundCount);
       } catch (error) {
         console.error("Failed to initialize game:", error);
         setError(`Failed to initialize game: ${error.message}`);
@@ -389,6 +393,9 @@ const GameView = ({ mapName, roundCount = 5 }) => {
 
     // Mark guess as submitted
     setGuessSubmitted(true);
+
+    // Track guess submission
+    gameAnalytics.trackGuessSubmitted(mapName, currentRound, score, dist);
 
     // Fit map to show both points with a small delay
     setTimeout(() => {

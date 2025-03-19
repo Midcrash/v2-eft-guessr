@@ -14,6 +14,7 @@ import TestInsertButton from "./components/TestInsertButton";
 import StorageTest from "./components/StorageTest";
 import { initDatabase } from "./services/gameService";
 import "./App.css";
+import { UmamiAnalytics } from "./utils/analytics";
 
 // Simple loading component
 const Loading = () => (
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <Router>
+      <UmamiAnalytics />
       <div className="app">
         <Suspense fallback={<Loading />}>
           <Routes>
