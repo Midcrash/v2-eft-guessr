@@ -54,3 +54,30 @@
 .leaflet-shadow-pane {
   z-index: 500;
 }
+
+/* Add mobile optimizations for map controls */
+@media (max-width: 768px) {
+  /* Make zoom controls bigger and more spaced out for touch */
+  .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    font-size: 18px !important;
+  }
+
+  /* Increase distance between control buttons */
+  .leaflet-control-zoom-in {
+    margin-bottom: 4px !important;
+  }
+
+  /* Position the zoom control at a more reachable location */
+  .leaflet-control-zoom {
+    margin: 12px !important;
+  }
+
+  /* Make attribution readable but less obtrusive */
+  .leaflet-control-attribution {
+    font-size: 9px !important;
+    padding: 3px 6px !important;
+  }
+}

@@ -749,6 +749,10 @@ const GameView = ({ mapName, roundCount = 5 }) => {
 
       <div className="game-content">
         <div className="image-sidebar">
+          <div className="image-sidebar-header">
+            <h3>Location to identify</h3>
+            <span className="image-help">Tap image to enlarge</span>
+          </div>
           {currentImage && (
             <div className="image-wrapper">
               <img
@@ -767,7 +771,8 @@ const GameView = ({ mapName, roundCount = 5 }) => {
 
           {!guessSubmitted ? (
             <div className="guess-instruction">
-              <p>Click on the map where you think this location is</p>
+              <h2>Make Your Guess</h2>
+              <p>Tap or click on the map where you think this location is</p>
               {hasGuessed && (
                 <button
                   className="btn btn-primary guess-button"
@@ -808,7 +813,7 @@ const GameView = ({ mapName, roundCount = 5 }) => {
               >
                 {currentRound === roundCount
                   ? "See Final Results"
-                  : "Next Round"}
+                  : `Next Round (${currentRound}/${roundCount})`}
               </button>
             </div>
           )}

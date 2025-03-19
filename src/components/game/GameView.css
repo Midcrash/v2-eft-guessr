@@ -76,6 +76,27 @@
   overflow: hidden;
 }
 
+.image-sidebar-header {
+  padding: 0.75rem;
+  background-color: var(--bg-darker);
+  border-bottom: 1px solid var(--border-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-sidebar-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.image-help {
+  font-size: 0.8rem;
+  color: var(--text-medium);
+  font-style: italic;
+}
+
 .image-wrapper {
   position: relative;
   height: 230px;
@@ -175,6 +196,16 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+}
+
+.guess-instruction h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.guess-instruction p {
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .guess-button {
@@ -404,19 +435,114 @@
     border-bottom: 1px solid var(--border-dark);
   }
 
+  .image-sidebar-header {
+    padding: 0.5rem 0.75rem;
+  }
+
   .image-wrapper {
-    height: 150px;
+    height: 180px;
   }
 
   .game-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .game-header h1 {
+    font-size: 1.5rem;
   }
 
   .game-info {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .guess-instruction {
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+  }
+
+  .guess-instruction h2 {
+    font-size: 1.2rem;
+  }
+
+  .guess-instruction p {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .guess-button {
+    width: 160px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .map-wrapper {
+    height: calc(100vh - 300px);
+  }
+
+  /* Make leaflet controls more touch-friendly */
+  .leaflet-touch .leaflet-control-zoom a {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+  }
+
+  /* Make popups more readable on mobile */
+  .custom-popup {
+    min-width: 120px;
+  }
+
+  .popup-header {
+    font-size: 1rem;
+  }
+
+  .popup-distance {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .image-sidebar {
+    height: 240px;
+  }
+
+  .image-sidebar-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .image-help {
+    font-size: 0.75rem;
+  }
+
+  .image-wrapper {
+    height: 140px;
+  }
+
+  .guess-instruction p {
+    font-size: 0.85rem;
+  }
+
+  .map-wrapper {
+    height: calc(100vh - 240px);
+  }
+
+  .game-complete h2 {
+    font-size: 2rem;
+  }
+
+  .score-value {
+    font-size: 3rem;
+  }
+
+  .score-label {
+    font-size: 1.2rem;
+  }
+
+  .round-score-item {
+    padding: 0.6rem 0.8rem;
   }
 }
 
@@ -435,6 +561,95 @@
 
   .total-score-info {
     justify-content: center;
+  }
+
+  .game-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .image-sidebar {
+    height: 220px;
+  }
+
+  .image-sidebar-header {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .image-wrapper {
+    height: 120px;
+  }
+
+  .map-wrapper {
+    height: calc(100vh - 220px);
+  }
+
+  .guess-instruction h2 {
+    font-size: 1.1rem;
+  }
+
+  .guess-instruction p {
+    font-size: 0.8rem;
+  }
+
+  .guess-button {
+    width: 140px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .next-button {
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 44px;
+    min-width: 120px;
+  }
+
+  .debug-links {
+    gap: 10px;
+  }
+
+  .error-details {
+    padding: 20px;
+  }
+
+  .storage-error-help {
+    padding: 10px;
+  }
+
+  .storage-error-help li {
+    font-size: 0.9em;
+  }
+
+  .game-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 250px;
+    margin: 1rem auto 0;
+  }
+
+  .game-actions .btn {
+    width: 100%;
+  }
+
+  .round-breakdown {
+    padding: 1rem;
+  }
+
+  .round-breakdown h3 {
+    font-size: 1.2rem;
+  }
+
+  .close-button {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    padding: 10px;
   }
 }
 
@@ -502,6 +717,11 @@
   gap: 15px;
   margin: 20px 0;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.debug-info {
+  display: none;
 }
 
 .btn {
@@ -515,6 +735,7 @@
   font-size: 16px;
   text-decoration: none;
   transition: background-color 0.2s;
+  min-height: 44px;
 }
 
 .btn:hover {
@@ -527,4 +748,56 @@
 
 .btn-secondary:hover {
   background-color: #616161;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 44px;
+    min-width: 120px;
+  }
+
+  .debug-links {
+    gap: 10px;
+  }
+
+  .error-details {
+    padding: 20px;
+  }
+
+  .storage-error-help {
+    padding: 10px;
+  }
+
+  .storage-error-help li {
+    font-size: 0.9em;
+  }
+
+  .game-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 250px;
+    margin: 1rem auto 0;
+  }
+
+  .game-actions .btn {
+    width: 100%;
+  }
+
+  .round-breakdown {
+    padding: 1rem;
+  }
+
+  .round-breakdown h3 {
+    font-size: 1.2rem;
+  }
+
+  .close-button {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    padding: 10px;
+  }
 }
