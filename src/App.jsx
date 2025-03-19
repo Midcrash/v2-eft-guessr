@@ -10,17 +10,17 @@ import GamePage from "./pages/GamePage";
 import AdminPage from "./pages/AdminPage";
 import TarkovMapPage from "./pages/TarkovMapPage";
 import MapSelector from "./pages/MapSelector";
-import TestInsertButton from "./components/TestInsertButton";
 import StorageTest from "./components/StorageTest";
 import { initDatabase } from "./services/gameService";
 import "./App.css";
 import { UmamiAnalytics } from "./utils/analytics";
+import CookieConsent from "./components/CookieConsent";
 
 // Simple loading component
 const Loading = () => (
-  <div className="loading-container">
+  <div className="loading">
     <div className="loading-spinner"></div>
-    <div>Loading...</div>
+    <p>Loading...</p>
   </div>
 );
 
@@ -64,10 +64,8 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
-
-        {/* Test buttons for debugging */}
-        {/* <TestInsertButton /> */}
       </div>
+      <CookieConsent />
     </Router>
   );
 }
