@@ -501,7 +501,7 @@
         "heightRange": [-1000, 1000],
         "author": "Tarkov.dev",
         "authorLink": "https://tarkov.dev/",
-        "svgPath": "/src/assets/maps/Customs-Ground_Level.svg",
+        "svgPath": "/game_maps/Customs-Ground_Level.svg",
         "tilePath": "https://assets.tarkov.dev/maps/customs_0.16/main/{z}/{x}/{y}.png",
         "layers": [
           {
