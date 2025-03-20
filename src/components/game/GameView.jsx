@@ -49,6 +49,19 @@ const GameView = ({ mapName, roundCount = 5 }) => {
   const [prefetchedImages, setPrefetchedImages] = useState([]);
   const [isPrefetching, setIsPrefetching] = useState(false);
 
+  // Add state to detect mobile view
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
+
+  // Listen for window resize to update mobile detection
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 900);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Initialize game - Separated from mapLoading dependency to avoid circular dependency
   useEffect(() => {
     const loadGame = async () => {
@@ -755,7 +768,9 @@ const GameView = ({ mapName, roundCount = 5 }) => {
       </div>
 
       <div className="game-content">
-        <div className="image-sidebar">
+        <div
+          className={`image-sidebar ${guessSubmitted ? "showing-results" : ""}`}
+        >
           <div className="image-sidebar-header">
             <h3>Location to identify</h3>
             <span className="image-help">Tap image to enlarge</span>
@@ -780,7 +795,9 @@ const GameView = ({ mapName, roundCount = 5 }) => {
             <div className="guess-instruction">
               <h2>Make Your Guess</h2>
               <p>Tap or click on the map where you think this location is</p>
-              {hasGuessed && (
+
+              {/* Only show inline button on desktop */}
+              {hasGuessed && !isMobileView && (
                 <button
                   className="btn btn-primary guess-button"
                   onClick={submitGuess}
@@ -789,6 +806,7 @@ const GameView = ({ mapName, roundCount = 5 }) => {
                   Submit Guess
                 </button>
               )}
+
               <div
                 className="debug-info"
                 style={{ fontSize: "0.7em", color: "#666", marginTop: "10px" }}
@@ -813,15 +831,18 @@ const GameView = ({ mapName, roundCount = 5 }) => {
                 rating={getScoreRating((roundScore / 5000) * 100)}
               />
 
-              <button
-                className="btn btn-primary next-button"
-                onClick={handleNextRound}
-                disabled={isProcessingGuess}
-              >
-                {currentRound === roundCount
-                  ? "See Final Results"
-                  : `Next Round (${currentRound}/${roundCount})`}
-              </button>
+              {/* Only show inline button on desktop */}
+              {!isMobileView && (
+                <button
+                  className="btn btn-primary next-button"
+                  onClick={handleNextRound}
+                  disabled={isProcessingGuess}
+                >
+                  {currentRound === roundCount
+                    ? "See Final Results"
+                    : `Next Round (${currentRound}/${roundCount})`}
+                </button>
+              )}
             </div>
           )}
         </div>
@@ -836,6 +857,27 @@ const GameView = ({ mapName, roundCount = 5 }) => {
           <TarkovMap mapName={mapName} onClick={handleMapClick} ref={mapRef} />
         </div>
       </div>
+
+      {/* Only show floating buttons on mobile view */}
+      {isMobileView && hasGuessed && !guessSubmitted && (
+        <button
+          className="floating-button floating-submit-button"
+          onClick={submitGuess}
+          disabled={isProcessingGuess}
+        >
+          Submit Guess
+        </button>
+      )}
+
+      {isMobileView && guessSubmitted && !gameComplete && (
+        <button
+          className="floating-button floating-next-button"
+          onClick={handleNextRound}
+          disabled={isProcessingGuess}
+        >
+          {currentRound === roundCount ? "See Final Results" : "Next Round"}
+        </button>
+      )}
     </div>
   );
 };
